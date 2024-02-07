@@ -30,9 +30,8 @@ class Equation {
 };
 
 // It will define a equation like "ax2 + by2 + dx + ey + f = 0"
-Equation::Equation(int a, int b, int d, int e, int f){
+Equation::Equation(int _a, int _b, int _d, int _e, int _f) : a(_a), b(_b), d(_d), e(_e), f(_f){
     this->type = Circle;
-    this->a=a;this->b=b;this->d=d;this->e=e;this->f=f;
     this->diameter = (pow(d, 2) + pow(e, 2) - 4*f) / 4;
     this->circumfe = diameter * PI;
     this->cir_area = pow(diameter/2, 2) * PI;
@@ -45,9 +44,8 @@ Equation::Equation(int a, int b, int d, int e, int f){
 
 
 // It will define a equation like "ax + by + c = 0"
-Equation::Equation(int a, int b, int c){
+Equation::Equation(int _a, int _b, int _c) : a(_a), b(_b), c(_c){
     this->type = Line;
-    this->a=a;this->b=b;this->c=c;
 
     // 沒有值設零
     this->d=0;this->e=0;this->f=0;
@@ -95,8 +93,8 @@ void Equation::get_equationInfo(){
     if(type == Circle){
         cout<<"Equation type : Circle"<<endl;
         cout<<"Equation : ";
-        if(a!=0) cout<<a<<"xx";
-        if(b!=0) {cout<<((b>0) ? "+":"");cout<<b<<"yy";}
+        if(a!=0) cout<<a<<"x^2";
+        if(b!=0) {cout<<((b>0) ? "+":"");cout<<b<<"y^2";}
         if(d!=0) {cout<<((d>0) ? "+":"");cout<<d<<"x";}
         if(e!=0) {cout<<((e>0) ? "+":"");cout<<e<<"y";}
         if(f!=0) {cout<<((f>0) ? "+":"");cout<<f<<"=0\n";}
